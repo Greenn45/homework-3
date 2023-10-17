@@ -22,9 +22,9 @@ const App = () => {
           </div>
 
           <div className='list'>
+              <h4>Tasks</h4>
             {tasks?.map((task) => (
                 <div>
-                    <h4>Tasks</h4>
                     <div className='task'><span>Task:</span> {task}
                     </div>
                 </div>
