@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const [task, setTask] = useState('');
+  const [tasks, setTasks] = useState([]);
+
+  const addNewTask = () => {
+    if(task) {
+      setTasks([...tasks, task]);
+      setTask('');
+    }
+  };
+
+    return (
+        <div className='app'>
+          <div className='form'>
+            <input type="text"
+                    value={task}
+                    onChange={(e) => setTask(e.target.value)}
+                    placeholder='Enter text'/>
+            <button onClick={addNewTask}>Create task</button>
+          </div>
+
+          <div className='list'>
+            {tasks?.map((task) => (
+                <div>
+                    <h4>Tasks</h4>
+                    <div className='task'><span>Task:</span> {task}
+                    </div>
+                </div>
+              ))}
+          </div>
+        </div>
+    );
+};
 
 export default App;
