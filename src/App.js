@@ -25,8 +25,7 @@ const App = () => {
               <h4>Tasks</h4>
             {tasks?.map((task) => (
                 <div>
-                    <div className='task'><span>Task:</span> {task}
-                    </div>
+                    <div className='task'><span>Task:</span> {task}</div>
                 </div>
               ))}
           </div>
